@@ -15,8 +15,9 @@
  */
 
 #import "MainViewController.h"
-#import "PlayerViewController.h"
 #import "Track+Provider.h"
+#import "TrackStore.h"
+#import "PlayerViewController.h"
 
 @implementation MainViewController
 
@@ -29,58 +30,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 2;
+  return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *const kCellIdentifier = @"MainViewController_CellIdentifier";
+    static NSString *const kCellIdentifier = @"MainViewController_CellIdentifier";
 
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-  if (cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
-  }
-
-  switch ([indexPath row]) {
-  case 0:
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
+    }
+    
     [[cell textLabel] setText:@"Remote Music"];
-    break;
 
-  case 1:
-    [[cell textLabel] setText:@"Local Music Library"];
-    break;
-
-  default:
-    abort();
-  }
-
-  return cell;
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-  PlayerViewController *playerViewController = [[PlayerViewController alloc] init];
-  switch ([indexPath row]) {
-  case 0:
-    [playerViewController setTitle:@"Remote Music ♫"];
-    [playerViewController setTracks:[Track remoteTracks]];
-    break;
-
-  case 1:
-    [playerViewController setTitle:@"Local Music Library ♫"];
-    [playerViewController setTracks:[Track musicLibraryTracks]];
-    break;
-
-  default:
-    abort();
-  }
-
-  [[self navigationController] pushViewController:playerViewController
-                                         animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [TrackStore sharedInstance].tracks = [Track remoteTracks];
+    PlayerViewController *controller = [[PlayerViewController alloc] init];
+    [[self navigationController] pushViewController:controller
+                                           animated:YES];
 }
 
 @end

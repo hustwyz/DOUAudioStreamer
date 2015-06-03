@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B083CE921B1F6843007A50E6 /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083CE911B1F6843007A50E6 /* cover.jpg */; };
+		B083CE941B1F6DF9007A50E6 /* cover_large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083CE931B1F6DF9007A50E6 /* cover_large.jpg */; };
+		B0E1A7A21B1EF1AD007CE6F0 /* PlayEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1A7A11B1EF1AD007CE6F0 /* PlayEngine.m */; };
+		B0E1A7A51B1F00C1007CE6F0 /* TrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1A7A41B1F00C1007CE6F0 /* TrackStore.m */; };
+		B0E1A7A81B1F04E8007CE6F0 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1A7A71B1F04E8007CE6F0 /* PlayerViewController.m */; };
 		D400E947171BF13F00BE7F37 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D400E946171BF13F00BE7F37 /* Accelerate.framework */; };
 		D40A255D17694680000B98AA /* DOUAudioAnalyzer+Default.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A255C17694680000B98AA /* DOUAudioAnalyzer+Default.m */; };
 		D40A4D1717AB83C400D0305F /* DOUAudioStreamer+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A4D1617AB83C400D0305F /* DOUAudioStreamer+Options.m */; };
@@ -44,12 +49,19 @@
 		D4F5B28D18A5F0C70063865C /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5B28C18A5F0C70063865C /* Track.m */; };
 		D4F5B29018A5F1B70063865C /* Track+Provider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5B28F18A5F1B70063865C /* Track+Provider.m */; };
 		D4F5B29318A5F3030063865C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5B29218A5F3030063865C /* MainViewController.m */; };
-		D4F5B29618A5F6B90063865C /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5B29518A5F6B90063865C /* PlayerViewController.m */; };
 		D4F5B29818A605A70063865C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F5B29718A605A70063865C /* AVFoundation.framework */; };
 		D4F5B29A18A605AB0063865C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F5B29918A605AB0063865C /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B083CE911B1F6843007A50E6 /* cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cover.jpg; path = ../../../../../../Desktop/cover.jpg; sourceTree = "<group>"; };
+		B083CE931B1F6DF9007A50E6 /* cover_large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cover_large.jpg; path = ../../../../../../Desktop/cover_large.jpg; sourceTree = "<group>"; };
+		B0E1A7A01B1EF1AD007CE6F0 /* PlayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayEngine.h; sourceTree = "<group>"; };
+		B0E1A7A11B1EF1AD007CE6F0 /* PlayEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayEngine.m; sourceTree = "<group>"; };
+		B0E1A7A31B1F00C1007CE6F0 /* TrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackStore.h; sourceTree = "<group>"; };
+		B0E1A7A41B1F00C1007CE6F0 /* TrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackStore.m; sourceTree = "<group>"; };
+		B0E1A7A61B1F04E8007CE6F0 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		B0E1A7A71B1F04E8007CE6F0 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		D400E946171BF13F00BE7F37 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D40A255B17694680000B98AA /* DOUAudioAnalyzer+Default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOUAudioAnalyzer+Default.h"; sourceTree = "<group>"; };
 		D40A255C17694680000B98AA /* DOUAudioAnalyzer+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DOUAudioAnalyzer+Default.m"; sourceTree = "<group>"; };
@@ -116,8 +128,6 @@
 		D4F5B28F18A5F1B70063865C /* Track+Provider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Track+Provider.m"; sourceTree = "<group>"; };
 		D4F5B29118A5F3030063865C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D4F5B29218A5F3030063865C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		D4F5B29418A5F6B90063865C /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		D4F5B29518A5F6B90063865C /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		D4F5B29718A605A70063865C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D4F5B29918A605AB0063865C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -241,9 +251,15 @@
 				D4F5B28F18A5F1B70063865C /* Track+Provider.m */,
 				D4F5B29118A5F3030063865C /* MainViewController.h */,
 				D4F5B29218A5F3030063865C /* MainViewController.m */,
-				D4F5B29418A5F6B90063865C /* PlayerViewController.h */,
-				D4F5B29518A5F6B90063865C /* PlayerViewController.m */,
 				D4C38929171B9D87009D6124 /* Supporting Files */,
+				B0E1A7A01B1EF1AD007CE6F0 /* PlayEngine.h */,
+				B0E1A7A11B1EF1AD007CE6F0 /* PlayEngine.m */,
+				B083CE911B1F6843007A50E6 /* cover.jpg */,
+				B083CE931B1F6DF9007A50E6 /* cover_large.jpg */,
+				B0E1A7A31B1F00C1007CE6F0 /* TrackStore.h */,
+				B0E1A7A41B1F00C1007CE6F0 /* TrackStore.m */,
+				B0E1A7A61B1F04E8007CE6F0 /* PlayerViewController.h */,
+				B0E1A7A71B1F04E8007CE6F0 /* PlayerViewController.m */,
 			);
 			path = DOUASDemo;
 			sourceTree = "<group>";
@@ -314,7 +330,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C3892D171B9D87009D6124 /* InfoPlist.strings in Resources */,
+				B083CE941B1F6DF9007A50E6 /* cover_large.jpg in Resources */,
 				D4C38935171B9D87009D6124 /* Default.png in Resources */,
+				B083CE921B1F6843007A50E6 /* cover.jpg in Resources */,
 				D4C38937171B9D87009D6124 /* Default@2x.png in Resources */,
 				D4C38939171B9D87009D6124 /* Default-568h@2x.png in Resources */,
 			);
@@ -336,15 +354,17 @@
 				D43ACD8A1738B47B00E6A571 /* DOUAudioDecoder.m in Sources */,
 				D43AFF97176A938100D1FECF /* DOUAudioVisualizer.m in Sources */,
 				D43AFF99176A938100D1FECF /* DOUEAGLView.m in Sources */,
+				B0E1A7A51B1F00C1007CE6F0 /* TrackStore.m in Sources */,
 				D44920A018A5D12000651CD2 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				D43ACD8B1738B47B00E6A571 /* DOUAudioEventLoop.m in Sources */,
 				D43ACD8C1738B47B00E6A571 /* DOUAudioFilePreprocessor.m in Sources */,
+				B0E1A7A21B1EF1AD007CE6F0 /* PlayEngine.m in Sources */,
 				D40A255D17694680000B98AA /* DOUAudioAnalyzer+Default.m in Sources */,
 				D43ACD8D1738B47B00E6A571 /* DOUAudioFileProvider.m in Sources */,
-				D4F5B29618A5F6B90063865C /* PlayerViewController.m in Sources */,
 				D43ACD8E1738B47B00E6A571 /* DOUAudioLPCM.m in Sources */,
 				D43ACD8F1738B47B00E6A571 /* DOUAudioPlaybackItem.m in Sources */,
 				D43ACD901738B47B00E6A571 /* DOUAudioRenderer.m in Sources */,
+				B0E1A7A81B1F04E8007CE6F0 /* PlayerViewController.m in Sources */,
 				D43ACD911738B47B00E6A571 /* DOUAudioStreamer.m in Sources */,
 				D4F5B29318A5F3030063865C /* MainViewController.m in Sources */,
 				D43ACD921738B47B00E6A571 /* DOUSimpleHTTPRequest.m in Sources */,

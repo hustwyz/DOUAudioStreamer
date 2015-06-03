@@ -18,6 +18,7 @@
 #import "MainViewController.h"
 #import "DOUAudioStreamer.h"
 #import "DOUAudioStreamer+Options.h"
+#import "PlayEngine.h"
 
 @implementation AppDelegate
 
@@ -34,6 +35,35 @@
   [[self window] makeKeyAndVisible];
 
   return YES;
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    switch (event.subtype)
+    {
+        case UIEventSubtypeRemoteControlPlay:
+            [[PlayEngine sharedInstance] actionPlayPause];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            [[PlayEngine sharedInstance] actionPlayPause];
+            break;
+        case UIEventSubtypeRemoteControlStop:
+            [[PlayEngine sharedInstance] actionStop];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            [[PlayEngine sharedInstance] actionPlayNextSong];
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [[PlayEngine sharedInstance] actionPlayLastSong];
+            break;
+        default:
+            break;
+    }
 }
 
 @end
