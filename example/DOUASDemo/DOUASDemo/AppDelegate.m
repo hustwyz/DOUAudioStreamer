@@ -37,11 +37,6 @@
   return YES;
 }
 
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event
 {
     switch (event.subtype)

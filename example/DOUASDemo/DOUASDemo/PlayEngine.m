@@ -65,7 +65,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)actionStop
 {
-    [self cancelStreamer];
+    [self stopStreamer];
 }
 
 - (void)actionSetCurrentDuration:(float)value
@@ -126,7 +126,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 #pragma mark - private action
-- (void)cancelStreamer
+
+- (void)stopStreamer
 {
     if (_streamer != nil) {
         [_streamer stop];
@@ -136,12 +137,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         _streamer = nil;
         
         [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+        [[UIApplication sharedApplication]resignFirstResponder];
     }
 }
 
 - (void)playTrack:(Track *)track
 {
-    [self cancelStreamer];
+    [self stopStreamer];
     
     if ([self.delegate respondsToSelector:@selector(onTrackChange:)]) {
         [self.delegate onTrackChange:track];
@@ -155,9 +157,10 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         
         [_streamer play];
         
-        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-        
         [self creatBackPlay:track];
+        
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        [[UIApplication sharedApplication] becomeFirstResponder];
     } else {
         NSLog(@"no track");
     }
@@ -206,7 +209,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 -(void)dealloc
 {
     NSLog(@"dealloc");
-    [self cancelStreamer];
+    [self stopStreamer];
 }
 
 @end
