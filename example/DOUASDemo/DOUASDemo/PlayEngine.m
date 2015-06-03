@@ -202,7 +202,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         [ songInfo setObject: track.title  forKey:MPMediaItemPropertyTitle];
         [ songInfo setObject: albumArt forKey:MPMediaItemPropertyArtwork ];
         [ songInfo setObject: track.artist forKey:MPMediaItemPropertyArtist];
-        [ [MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     }
 }
 

@@ -42,18 +42,23 @@
     switch (event.subtype)
     {
         case UIEventSubtypeRemoteControlPlay:
+            NSLog(@"remote event: play");
             [[PlayEngine sharedInstance] actionPlayPause];
             break;
         case UIEventSubtypeRemoteControlPause:
+            NSLog(@"remote event: pause");
             [[PlayEngine sharedInstance] actionPlayPause];
             break;
         case UIEventSubtypeRemoteControlStop:
+            NSLog(@"remote event: stop");
             [[PlayEngine sharedInstance] actionStop];
             break;
         case UIEventSubtypeRemoteControlNextTrack:
+            NSLog(@"remote event: next");
             [[PlayEngine sharedInstance] actionPlayNextSong];
             break;
         case UIEventSubtypeRemoteControlPreviousTrack:
+            NSLog(@"remote event: previous");
             [[PlayEngine sharedInstance] actionPlayLastSong];
             break;
         default:
