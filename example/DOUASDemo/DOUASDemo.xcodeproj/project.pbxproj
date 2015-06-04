@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B083CE921B1F6843007A50E6 /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083CE911B1F6843007A50E6 /* cover.jpg */; };
-		B083CE941B1F6DF9007A50E6 /* cover_large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083CE931B1F6DF9007A50E6 /* cover_large.jpg */; };
+		B0D25AD61B2001BC0059996C /* cover_large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0D25AD41B2001BC0059996C /* cover_large.jpg */; };
+		B0D25AD71B2001BC0059996C /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0D25AD51B2001BC0059996C /* cover.jpg */; };
 		B0E1A7A21B1EF1AD007CE6F0 /* PlayEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1A7A11B1EF1AD007CE6F0 /* PlayEngine.m */; };
 		B0E1A7A51B1F00C1007CE6F0 /* TrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1A7A41B1F00C1007CE6F0 /* TrackStore.m */; };
 		B0E1A7A81B1F04E8007CE6F0 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E1A7A71B1F04E8007CE6F0 /* PlayerViewController.m */; };
@@ -54,8 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B083CE911B1F6843007A50E6 /* cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cover.jpg; path = ../../../../../../Desktop/cover.jpg; sourceTree = "<group>"; };
-		B083CE931B1F6DF9007A50E6 /* cover_large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cover_large.jpg; path = ../../../../../../Desktop/cover_large.jpg; sourceTree = "<group>"; };
+		B0D25AD41B2001BC0059996C /* cover_large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_large.jpg; sourceTree = "<group>"; };
+		B0D25AD51B2001BC0059996C /* cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover.jpg; sourceTree = "<group>"; };
 		B0E1A7A01B1EF1AD007CE6F0 /* PlayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayEngine.h; sourceTree = "<group>"; };
 		B0E1A7A11B1EF1AD007CE6F0 /* PlayEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayEngine.m; sourceTree = "<group>"; };
 		B0E1A7A31B1F00C1007CE6F0 /* TrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackStore.h; sourceTree = "<group>"; };
@@ -242,6 +242,8 @@
 		D4C38928171B9D87009D6124 /* DOUASDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B0D25AD41B2001BC0059996C /* cover_large.jpg */,
+				B0D25AD51B2001BC0059996C /* cover.jpg */,
 				D43ACD731738B47B00E6A571 /* DOUAudioStreamer */,
 				D4C38931171B9D87009D6124 /* AppDelegate.h */,
 				D4C38932171B9D87009D6124 /* AppDelegate.m */,
@@ -254,8 +256,6 @@
 				D4C38929171B9D87009D6124 /* Supporting Files */,
 				B0E1A7A01B1EF1AD007CE6F0 /* PlayEngine.h */,
 				B0E1A7A11B1EF1AD007CE6F0 /* PlayEngine.m */,
-				B083CE911B1F6843007A50E6 /* cover.jpg */,
-				B083CE931B1F6DF9007A50E6 /* cover_large.jpg */,
 				B0E1A7A31B1F00C1007CE6F0 /* TrackStore.h */,
 				B0E1A7A41B1F00C1007CE6F0 /* TrackStore.m */,
 				B0E1A7A61B1F04E8007CE6F0 /* PlayerViewController.h */,
@@ -330,9 +330,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C3892D171B9D87009D6124 /* InfoPlist.strings in Resources */,
-				B083CE941B1F6DF9007A50E6 /* cover_large.jpg in Resources */,
 				D4C38935171B9D87009D6124 /* Default.png in Resources */,
-				B083CE921B1F6843007A50E6 /* cover.jpg in Resources */,
+				B0D25AD61B2001BC0059996C /* cover_large.jpg in Resources */,
+				B0D25AD71B2001BC0059996C /* cover.jpg in Resources */,
 				D4C38937171B9D87009D6124 /* Default@2x.png in Resources */,
 				D4C38939171B9D87009D6124 /* Default-568h@2x.png in Resources */,
 			);
