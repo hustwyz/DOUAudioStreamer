@@ -165,7 +165,6 @@
             
         case DOUAudioStreamerFinished:
             [_statusLabel setText:@"finished"];
-            [self _actionNext:nil];
             break;
     
         case DOUAudioStreamerBuffering:

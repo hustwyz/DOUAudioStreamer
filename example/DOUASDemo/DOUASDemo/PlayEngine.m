@@ -168,6 +168,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)onUpdateStatus
 {
+    if (_streamer.status == DOUAudioStreamerFinished) {
+        [self actionPlayNextSong];
+    }
     if ([self.delegate respondsToSelector:@selector(onStatusChange:)]) {
         [self.delegate onStatusChange:_streamer.status];
     }
