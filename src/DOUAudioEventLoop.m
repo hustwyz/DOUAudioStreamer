@@ -314,7 +314,7 @@ static void audio_route_change_listener(void *inClientData,
       [_renderer flush];
       [*streamer setDecoder:nil];
       [*streamer setPlaybackItem:nil];
-      [*streamer setStatus:DOUAudioStreamerIdle];
+//      [*streamer setStatus:DOUAudioStreamerIdle];
     }
   }
   else if (event == event_seek) {

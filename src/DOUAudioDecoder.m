@@ -16,6 +16,8 @@
 
 #import "DOUAudioDecoder.h"
 #import "DOUAudioFileProvider.h"
+#import "DOUAudioStreamer.h"
+#import "DOUAudioEventLoop.h"
 #import "DOUAudioPlaybackItem.h"
 #import "DOUAudioLPCM.h"
 #include <AudioToolbox/AudioToolbox.h>
@@ -347,25 +349,29 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
     NSUInteger expectedDataLength = [provider expectedLength];
     NSInteger receivedDataLength  = (NSInteger)([provider receivedLength] - dataOffset);
 
-    SInt64 packetNumber = _decodingContext.afio.pos + _decodingContext.afio.numPacketsPerRead;
-    SInt64 packetDataOffset = packetNumber * _decodingContext.afio.srcSizePerPacket;
-
-    SInt64 bytesPerPacket = _decodingContext.afio.srcSizePerPacket;
-    SInt64 bytesPerRead = bytesPerPacket * _decodingContext.afio.numPacketsPerRead;
-
-    SInt64 framesPerPacket = _decodingContext.inputFormat.mFramesPerPacket;
-    double intervalPerPacket = 1000.0 / _decodingContext.inputFormat.mSampleRate * framesPerPacket;
-    double intervalPerRead = intervalPerPacket / bytesPerPacket * bytesPerRead;
-
-    double downloadTime = 1000.0 * (bytesPerRead - (receivedDataLength - packetDataOffset)) / [provider downloadSpeed];
-    SInt64 bytesRemaining = (SInt64)(expectedDataLength - (NSUInteger)receivedDataLength);
-
-    if (receivedDataLength < packetDataOffset ||
-        (bytesRemaining > 0 &&
-        downloadTime > intervalPerRead)) {
-      pthread_mutex_unlock(&_decodingContext.mutex);
-      return DOUAudioDecoderWaiting;
+//    SInt64 packetNumber = _decodingContext.afio.pos + _decodingContext.afio.numPacketsPerRead;
+//    SInt64 packetDataOffset = packetNumber * _decodingContext.afio.srcSizePerPacket;
+//
+//    SInt64 bytesPerPacket = _decodingContext.afio.srcSizePerPacket;
+//    SInt64 bytesPerRead = bytesPerPacket * _decodingContext.afio.numPacketsPerRead;
+//
+//    SInt64 framesPerPacket = _decodingContext.inputFormat.mFramesPerPacket;
+//    double intervalPerPacket = 1000.0 / _decodingContext.inputFormat.mSampleRate * framesPerPacket;
+//    double intervalPerRead = intervalPerPacket / bytesPerPacket * bytesPerRead;
+//
+//    double downloadTime = 1000.0 * (bytesPerRead - (receivedDataLength - packetDataOffset)) / [provider downloadSpeed];
+//    SInt64 bytesRemaining = (SInt64)(expectedDataLength - (NSUInteger)receivedDataLength);
+    
+    DOUAudioStreamer *tempStreamer = [DOUAudioEventLoop sharedEventLoop].currentStreamer;
+    if (tempStreamer != nil) {
+//        float rate = tempStreamer.currentTime / (tempStreamer.duration * 1.0);  //rate是那来算当前进度条进度的
+        float receiveTime = receivedDataLength*tempStreamer.duration/expectedDataLength;
+        if (receiveTime-5 < tempStreamer.currentTime) {
+            pthread_mutex_unlock(&_decodingContext.mutex);
+            return DOUAudioDecoderWaiting;
+        }
     }
+    
   }
 
   AudioBufferList fillBufList;
