@@ -40,6 +40,8 @@ typedef void (^DOUAudioFileProviderEventBlock)(void);
 @property (nonatomic, readonly) NSUInteger receivedLength;
 @property (nonatomic, readonly) NSUInteger downloadSpeed;
 
+@property (nonatomic, readonly) NSInteger httpStatusCode;// 播放remote audio的时候才有用
+
 @property (nonatomic, readonly, getter=isFailed) BOOL failed;
 @property (nonatomic, readonly, getter=isReady) BOOL ready;
 @property (nonatomic, readonly, getter=isFinished) BOOL finished;

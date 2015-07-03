@@ -518,6 +518,11 @@ static void audio_file_stream_packets_proc(void *inClientData,
   return _requestCompleted;
 }
 
+- (NSInteger)httpStatusCode
+{
+    return _request ? [_request statusCode] : 0;
+}
+
 @end
 
 #pragma mark - Concrete Audio Media Library File Provider

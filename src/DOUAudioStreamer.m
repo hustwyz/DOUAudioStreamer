@@ -187,6 +187,11 @@ NSString *const kDOUAudioStreamerErrorDomain = @"com.douban.audio-streamer.error
   return [_fileProvider downloadSpeed];
 }
 
+- (NSInteger)httpStatusCode
+{
+  return [_fileProvider httpStatusCode];
+}
+
 - (void)play
 {
   @synchronized(self) {
