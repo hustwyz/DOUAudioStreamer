@@ -292,8 +292,19 @@ static void audio_route_change_listener(void *inClientData,
         ([*streamer status] == DOUAudioStreamerPaused ||
          [*streamer status] == DOUAudioStreamerIdle ||
          [*streamer status] == DOUAudioStreamerFinished)) {
-      [*streamer setStatus:DOUAudioStreamerPlaying];
-      [_renderer setInterrupted:NO];
+      if ([_renderer isInterrupted]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
+        const OSStatus status = AudioSessionSetActive(TRUE);
+#pragma clang diagnostic pop
+        if (status == noErr) {
+          [*streamer setStatus:DOUAudioStreamerPlaying];
+          [_renderer setInterrupted:NO];
+        }
+      }
+      else {
+        [*streamer setStatus:DOUAudioStreamerPlaying];
+      }
     }
   }
   else if (event == event_pause) {
@@ -369,13 +380,15 @@ static void audio_route_change_listener(void *inClientData,
       status = AudioSessionSetActive(TRUE);
       NSAssert(status == noErr, @"failed to activate audio session");
 #pragma clang diagnostic pop
-      [_renderer setInterrupted:NO];
+      if (status == noErr) {
+        [_renderer setInterrupted:NO];
 
-      if (*streamer != nil &&
-          [*streamer status] == DOUAudioStreamerPaused &&
-          [*streamer isPausedByInterruption]) {
-        [*streamer setPausedByInterruption:NO];
-        [self performSelector:@selector(play) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+        if (*streamer != nil &&
+            [*streamer status] == DOUAudioStreamerPaused &&
+            [*streamer isPausedByInterruption]) {
+          [*streamer setPausedByInterruption:NO];
+          [self performSelector:@selector(play) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+        }
       }
     }
   }
