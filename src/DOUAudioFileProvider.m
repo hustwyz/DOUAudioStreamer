@@ -373,7 +373,11 @@ static BOOL gLastProviderIsFinished = NO;
 - (void)_handleAudioFileStreamProperty:(AudioFileStreamPropertyID)propertyID
 {
   if (propertyID == kAudioFileStreamProperty_ReadyToProducePackets) {
-    _readyToProducePackets = YES;
+//    _readyToProducePackets = YES;
+      dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC));
+      dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+          _readyToProducePackets = YES;
+      });
   }
 }
 
